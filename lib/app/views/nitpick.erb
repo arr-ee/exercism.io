@@ -87,7 +87,7 @@
       <% end %>
 
       <div>
-        <form accept-charset="UTF-8" action="/submissions/<%= submission.id %>/nits/<%= nit.id %>/argue" method="POST">
+        <form accept-charset="UTF-8" action="/submissions/<%= submission.id %>/nits/<%= nit.id %>/argue" method="POST" class="js-shortcut">
           <%= erb :comment %>
           <button type="submit" class="btn">Discuss Nit</button>
         </form>
@@ -96,14 +96,14 @@
 
     <% if submission.user.completed?(submission.exercise) %>
 
-      <form accept-charset="UTF-8" action="/submissions/<%= submission.id %>/respond" method="POST">
+      <form accept-charset="UTF-8" action="/submissions/<%= submission.id %>/respond" method="POST" class="js-shortcut">
         <%= erb :comment %>
         <button type="submit" name="nitpick" class="btn btn-primary">Comment</button>
       </form>
 
     <% else %>
 
-      <form accept-charset="UTF-8" action="/submissions/<%= submission.id %>/respond" method="POST">
+      <form accept-charset="UTF-8" action="/submissions/<%= submission.id %>/respond" method="POST" class="js-shortcut">
         <%= erb :comment %>
         <% if current_user.admin? %>
           <button type="submit" name="approve" class="btn">Unlock Next</button>
